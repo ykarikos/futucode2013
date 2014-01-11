@@ -1,11 +1,24 @@
 var http = require("http");
 var url = require("url");
+var _ = require("underscore");
 
 var dataSource = "http://localhost:8000/data.json";
 
 function data(response) {
 	var mangleData = function(data) {
-		return data;
+		var messages = data.messages.filter(function(msg){
+			return msg.replied_to_id != null
+		}).map(function(msg) {
+			return msg.body.parsed.toLowerCase();
+		});
+
+		var languages = _.flatten(messages.map(function(msg) { 
+			return msg.split(/\s*,\s*/); 
+		}));
+
+		return _.map(_.countBy(languages, _.identity), function(value, key) {
+			return [key, value];
+		});
 	}
 	var requestCallback = function(wsRes) {
 		var str = "";
