@@ -3,8 +3,23 @@ var url = require("url");
 var _ = require("underscore");
 
 var dataSource = "http://localhost:8000/data.json";
+var cachePeriod = 5; // 5 sec
+var cache = {
+	valid: 0,
+	data: {}
+};
+
+function currentTimeInSeconds() {
+	return new Date().getTime() / 1000;
+}
+
+function updateCache(data) {
+	cache.valid = currentTimeInSeconds() + cachePeriod;
+	cache.data = data;
+}
 
 function data(response) {
+
 	var processData = function(data) {
 		var messages = data.messages.filter(function(msg){
 			return msg.replied_to_id != null
@@ -31,6 +46,7 @@ function data(response) {
 		wsRes.on('end', function () {
 			var newData = JSON.stringify(processData(JSON.parse(str)));
 			writeResponse(newData);
+			updateCache(newData);
 		});
 	}
 
@@ -40,7 +56,13 @@ function data(response) {
 		response.end();
 	}
 
-	http.get(dataSource, requestCallback);
+	if (cache.valid < currentTimeInSeconds()) {
+		console.log("cache miss");
+		http.get(dataSource, requestCallback);
+	} else {
+		console.log("cache hit");
+		writeResponse(cache.data);
+	}
 }
 
 function notFound(response) {
