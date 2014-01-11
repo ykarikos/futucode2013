@@ -1,11 +1,29 @@
 var http = require("http");
 var url = require("url");
 
+var dataSource = "http://localhost:8000/data.json";
+
 function data(response) {
-	response.writeHead(200, {"Content-Type": "application/json"});
-	var o = { data: 'foo', index: 2 };
-	response.write(JSON.stringify(o));
-	response.end();	
+	var mangleData = function(data) {
+		return data;
+	}
+	var requestCallback = function(wsRes) {
+		var str = "";
+		//another chunk of data has been recieved, so append it to `str`
+		wsRes.on('data', function (chunk) {
+			str += chunk;
+		});
+
+		//the whole response has been recieved, so we just print it out here
+		wsRes.on('end', function () {
+			var newData = JSON.stringify(mangleData(JSON.parse(str)));
+			response.writeHead(200, {"Content-Type": "application/json"});
+			response.write(newData);
+			response.end();
+		});		
+	}
+
+	http.get(dataSource, requestCallback);
 }
 
 function notFound(response) {
