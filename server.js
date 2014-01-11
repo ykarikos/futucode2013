@@ -5,7 +5,7 @@ var _ = require("underscore");
 var dataSource = "http://localhost:8000/data.json";
 
 function data(response) {
-	var mangleData = function(data) {
+	var processData = function(data) {
 		var messages = data.messages.filter(function(msg){
 			return msg.replied_to_id != null
 		}).map(function(msg) {
@@ -29,11 +29,15 @@ function data(response) {
 
 		//the whole response has been recieved, so we just print it out here
 		wsRes.on('end', function () {
-			var newData = JSON.stringify(mangleData(JSON.parse(str)));
-			response.writeHead(200, {"Content-Type": "application/json"});
-			response.write(newData);
-			response.end();
-		});		
+			var newData = JSON.stringify(processData(JSON.parse(str)));
+			writeResponse(newData);
+		});
+	}
+
+	function writeResponse(data) {
+		response.writeHead(200, {"Content-Type": "application/json"});
+		response.write(data);
+		response.end();
 	}
 
 	http.get(dataSource, requestCallback);
