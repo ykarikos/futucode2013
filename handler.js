@@ -17,23 +17,25 @@ var currentTimeInSeconds = function() {
 }
 
 var processData = function(data) {
-	var messages = _.uniq(_.sortBy(data.messages.filter(function(msg) {
+	var messages = _.chain(data.messages).filter(function(msg) {
 		return msg.replied_to_id != null
-	}), function(msg) { // sortBy iterator
+	}).sortBy(function(msg) {
 		return msg.created_at;
-	}).reverse(), function(msg) { // uniq iterator
+	}).reverse().uniq(function(msg) {
 		return msg.sender_id;
 	}).map(function(msg) {
 		return msg.body.parsed.toLowerCase();
-	});
+	}).value();
 
-	var languages = _.flatten(messages.map(function(msg) { 
+	var languages = _.chain(messages).map(function(msg) { 
 		return msg.split(/\s*,\s*/); 
-	}));
+	}).flatten().value();
 
-	return _.map(_.countBy(languages, _.identity), function(value, key) {
+	return _.chain(languages)
+	.countBy(_.identity)
+	.map(function(value, key) {
 		return [key, value];
-	});
+	}).value();
 };
 exports.processData = processData;
 
