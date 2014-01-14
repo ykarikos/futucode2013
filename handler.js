@@ -28,7 +28,7 @@ var processData = function(data) {
 	}).value();
 
 	var languages = _.chain(messages).map(function(msg) { 
-		return msg.split(/\s*,\s*/); 
+		return _.uniq(msg.split(/\s*,\s*/));
 	}).flatten().value();
 
 	return _.chain(languages)
