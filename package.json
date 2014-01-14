@@ -1,0 +1,28 @@
+{
+  "name": "futucode2013",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "should": "~2.1.1",
+    "underscore": "~1.5.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ranskan.peruna.fi:git/futu-code2013"
+  },
+  "author": "Yrjö Kari-Koskinen <ykk@peruna.fi>",
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.24",
+    "npm": "1.3.21"
+  }
+}

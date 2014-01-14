@@ -4,11 +4,11 @@ var url = require("url");
 
 exports.parseArgs = function(args) {
 	var confArgs = args.slice(2);
-	if (confArgs.length < 3) {
-		console.log("Usage: " + args.slice(0,2).join(" ") +  " port dataSource authToken");
+	if (confArgs.length < 2) {
+		console.log("Usage: " + args.slice(0,2).join(" ") +  " dataSource authToken");
 		process.exit(1);
 	}
-	return {port: confArgs[0], dataSource: confArgs[1], authToken: confArgs[2] };
+	return {dataSource: confArgs[0], authToken: confArgs[1] };
 };
 
 exports.configurationToOptions = function(conf) {

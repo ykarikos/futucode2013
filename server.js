@@ -17,7 +17,8 @@ var configuration = util.parseArgs(process.argv);
 var dataRequestOptions = util.configurationToOptions(configuration);
 // console.log("Read configuration: " + JSON.stringify(dataRequestOptions));
 
-http.createServer(onRequest).listen(configuration.port);
+var port = process.env.PORT || 5000;
+http.createServer(onRequest).listen(port);
 
-console.log("Server has started: http://localhost:" + configuration.port);
+console.log("Server has started: http://localhost:" + port);
 
