@@ -35,7 +35,9 @@ var processData = function(data) {
 	.countBy(_.identity)
 	.map(function(value, key) {
 		return [key, value];
-	}).value();
+	}).sortBy(function(kv) {
+		return kv[1];
+	}).reverse().value();
 };
 exports.processData = processData;
 
