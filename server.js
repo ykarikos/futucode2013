@@ -31,8 +31,12 @@ function updateCache(data) {
 function data(response) {
 
 	var processData = function(data) {
-		var messages = data.messages.filter(function(msg){
+		var messages = _.uniq(_.sortBy(data.messages.filter(function(msg) {
 			return msg.replied_to_id != null
+		}), function(msg) { // sortBy iterator
+			return msg.created_at;
+		}).reverse(), function(msg) { // uniq iterator
+			return msg.sender_id;
 		}).map(function(msg) {
 			return msg.body.parsed.toLowerCase();
 		});
