@@ -16,27 +16,28 @@ var currentTimeInSeconds = function() {
 	return new Date().getTime() / 1000;
 }
 
+var processData = function(data) {
+	var messages = _.uniq(_.sortBy(data.messages.filter(function(msg) {
+		return msg.replied_to_id != null
+	}), function(msg) { // sortBy iterator
+		return msg.created_at;
+	}).reverse(), function(msg) { // uniq iterator
+		return msg.sender_id;
+	}).map(function(msg) {
+		return msg.body.parsed.toLowerCase();
+	});
+
+	var languages = _.flatten(messages.map(function(msg) { 
+		return msg.split(/\s*,\s*/); 
+	}));
+
+	return _.map(_.countBy(languages, _.identity), function(value, key) {
+		return [key, value];
+	});
+};
+exports.processData = processData;
+
 exports.dataJson = function(dataRequestOptions, response) {
-
-	var processData = function(data) {
-		var messages = _.uniq(_.sortBy(data.messages.filter(function(msg) {
-			return msg.replied_to_id != null
-		}), function(msg) { // sortBy iterator
-			return msg.created_at;
-		}).reverse(), function(msg) { // uniq iterator
-			return msg.sender_id;
-		}).map(function(msg) {
-			return msg.body.parsed.toLowerCase();
-		});
-
-		var languages = _.flatten(messages.map(function(msg) { 
-			return msg.split(/\s*,\s*/); 
-		}));
-
-		return _.map(_.countBy(languages, _.identity), function(value, key) {
-			return [key, value];
-		});
-	};
 
 	var requestCallback = function(wsRes) {
 		var str = "";
