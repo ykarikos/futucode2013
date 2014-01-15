@@ -1,28 +1,55 @@
 
 // What programming languages have you used this year?
-// http://code2013.herokuapp.com/
 
-// Load the Visualization API and the piechart package.
-google.load('visualization', '1.0', {'packages':['corechart']});
+// http://bl.ocks.org/mbostock/4063269
+var diameter = 700,
+    color = d3.scale.category10();
 
-var drawChart = function(data) {
-  // Create and populate the data table.
-  var dataTable = google.visualization.arrayToDataTable(data, true);
+var bubble = d3.layout.pack()
+    .sort(null)
+    .size([diameter, diameter])
+    .padding(1.5);
 
-  var options = {
-    pieSliceText: 'value',
-    'backgroundColor': '#ded',
-    'width':700,
-    'height':400
-  };
-  // Create and draw the visualization.
-  new google.visualization.PieChart(document.getElementById('chart')).
-      draw(dataTable, options);
-}
+var svg = d3.select("#chart").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .attr("class", "bubble");
 
-$(document).ready(function() {
+var tooltip = d3.select("#chart").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
-	$.get("/data.json", drawChart);
 
+d3.json("data.json", function(error, root) {
+	var node = svg.selectAll(".node")
+	    .data(bubble.nodes(root)
+	    	.filter(function(d) { return !d.children; }))
+	    .enter().append("g")
+	    .attr("class", "node")
+	    .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+	node.on("mouseover", function(d) {
+	     	tooltip.transition()
+	        	.duration(200)
+	        	.style("opacity", .9);
+	    	tooltip.html( d.className + ": " + d.value)
+	        	.style("left", (d3.event.pageX) + "px")
+	        	.style("top", (d3.event.pageY - 28) + "px");
+	    })
+	    .on("mouseout", function(d) {
+	    	tooltip.transition()
+	        	.duration(500)
+	        	.style("opacity", 0);
+	    });	
+
+	node.append("circle")
+    	.attr("r", function(d) { return d.r; })
+	    .style("fill", function(d) { return color(d.className); });
+
+	node.append("text")
+		.attr("dy", ".3em")
+    	.attr("text-anchor", "middle")
+		.text(function(d) { return d.className.substring(0, d.r / 3); });
 });
 
+d3.select(self.frameElement).style("height", diameter + "px");

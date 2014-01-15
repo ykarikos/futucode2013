@@ -31,13 +31,15 @@ var processData = function(data) {
 		return _.uniq(msg.split(/\s*,\s*/));
 	}).flatten().value();
 
-	return _.chain(languages)
+	var children = _.chain(languages)
 	.countBy(_.identity)
 	.map(function(value, key) {
-		return [key, value];
-	}).sortBy(function(kv) {
-		return kv[1];
-	}).reverse().value();
+		return { className: key, value: value };
+	}).sortBy(function(obj) {
+    	return obj.value;
+    }).reverse().value();
+
+	return { children: children };
 };
 exports.processData = processData;
 

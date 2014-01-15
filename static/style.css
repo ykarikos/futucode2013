@@ -7,3 +7,11 @@ h1 {
 	font-size: 3em;
 }
 
+div.tooltip { 
+	position: absolute;
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 8px;
+	pointer-events: none;
+	background: white
+}
