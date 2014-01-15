@@ -1,7 +1,7 @@
 var url = require("url");
 var _ = require("underscore");
 
-var cachePeriod = 20; // 20 sec
+var cachePeriod = 30; // 30 sec
 var cache = {
 	valid: 0,
 	data: ""
@@ -41,8 +41,7 @@ var processData = function(data) {
 };
 exports.processData = processData;
 
-exports.dataJson = function(dataRequestOptions, response) {
-
+exports.dataJson = function(configuration, dataRequestOptions, response) {
 	var requestCallback = function(wsRes) {
 		var str = "";
 		//another chunk of data has been recieved, so append it to `str`
@@ -80,7 +79,7 @@ exports.dataJson = function(dataRequestOptions, response) {
 
 	if (cache.valid < currentTimeInSeconds()) {
 		console.log("cache miss");
-		dataRequestOptions.module.get(dataRequestOptions, requestCallback).on('error', errorCallback);
+		configuration.module.get(dataRequestOptions, requestCallback).on('error', errorCallback);
 	} else {
 		console.log("cache hit");
 		writeResponse(cache.data);
