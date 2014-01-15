@@ -44,20 +44,20 @@ exports.processData = processData;
 exports.dataJson = function(configuration, dataRequestOptions, response) {
 	var requestCallback = function(wsRes) {
 		var str = "";
-		//another chunk of data has been recieved, so append it to `str`
+		//another chunk of data has been received, so append it to `str`
 		wsRes.on('data', function (chunk) {
 			str += chunk;
 		});
 
 		//the whole response has been received, so we just print it out here
 		wsRes.on('end', function () {
-			if (str == "") {
-				errorCallback("Empty data.");
-			} else {
+			try {
 				var newData = JSON.stringify(processData(JSON.parse(str)));
 				updateCache(newData);
 				writeResponse(newData);
-			}
+			} catch (e) {
+				errorCallback(e);
+				}
 		});
 	};
 
