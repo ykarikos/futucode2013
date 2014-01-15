@@ -4,7 +4,7 @@ var handler = require("./handler.js");
 var util = require("./util.js");
 
 function onRequest(request, response) {
-	console.log("Request to " + request.url + " received.");
+	// console.log("Request to " + request.url + " received.");
 	var parsedUrl = url.parse(request.url, true);
 	if (parsedUrl.pathname == "/data.json") {
 		handler.dataJson(configuration, dataRequestOptions, response);

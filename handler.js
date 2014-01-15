@@ -81,7 +81,7 @@ exports.dataJson = function(configuration, dataRequestOptions, response) {
 		console.log("cache miss");
 		configuration.module.get(dataRequestOptions, requestCallback).on('error', errorCallback);
 	} else {
-		console.log("cache hit");
+		// console.log("cache hit");
 		writeResponse(cache.data);
 	}
 };
