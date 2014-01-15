@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "should": "~2.1.1",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "express": "~3.4.8"
   },
   "devDependencies": {},
   "scripts": {

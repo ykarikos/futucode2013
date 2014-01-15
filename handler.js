@@ -41,7 +41,7 @@ var processData = function(data) {
 };
 exports.processData = processData;
 
-exports.dataJson = function(configuration, dataRequestOptions, response) {
+exports.dataJson = function(configuration, dataRequestOptions, res) {
 	var requestCallback = function(wsRes) {
 		var str = "";
 		//another chunk of data has been received, so append it to `str`
@@ -68,13 +68,15 @@ exports.dataJson = function(configuration, dataRequestOptions, response) {
 
 	var writeResponse = function(data) {
 		if (data == "") {
-			response.writeHead(500, {"Content-Type": "text/plain"});
-			response.write("500 Internal Server Error\nEmpty data")
+			res.status(500);
+			res.set("Content-Type", "text/plain");
+			res.send("500 Internal Server Error\nEmpty data")
 		} else {
-			response.writeHead(200, {"Content-Type": "application/json"});
-			response.write(data);
+			res.status(200);
+			res.set("Content-Type", "application/json");
+			res.send(data);
 		}
-		response.end();
+		res.end();
 	}
 
 	if (cache.valid < currentTimeInSeconds()) {
@@ -86,8 +88,3 @@ exports.dataJson = function(configuration, dataRequestOptions, response) {
 	}
 };
 
-exports.notFound = function(response) {
-	response.writeHead(404, {"Content-Type": "text/plain"});
-	response.write("404 Not found\nGo away");
-	response.end();		
-};
