@@ -12,6 +12,7 @@ var dataRequestOptions = util.configurationToOptions(configuration);
 // console.log("Read configuration: " + JSON.stringify(configuration));
 
 app.get('/data.json', onRequest);
+app.use(express.static(process.cwd() + "/static"))
 app.listen(configuration.port);
 
 console.log("Server has started: http://localhost:" + configuration.port);
