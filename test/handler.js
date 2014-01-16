@@ -1,11 +1,12 @@
 var handler = require('../handler.js'),
-	data = require('./data.json'),
+	complete = require('./complete.json'),
+	nasty = require('./nasty.json'),
 	should = require('should'),
 	assert = require('assert');
 
 
 describe('handler.processData', function() {
-	it('should process the data', function() {
+	it('should process a complete data file', function() {
 		var expected = 
 			{ 
 				"children" : [
@@ -17,6 +18,18 @@ describe('handler.processData', function() {
 					{ "className" : "clojure", "value": 1}
 				]
 		};
-		handler.processData(data).should.eql(expected)
+		handler.processData(complete).should.eql(expected)
+	}),
+
+	it('should process nasty data', function() {
+		var expected = 
+			{ 
+				"children" : [
+					{ "className" : "objective-c++", "value": 1},
+					{ "className" : "java", "value": 1},
+					{ "className" : "javascript", "value": 1}
+				]
+		};
+		handler.processData(nasty).should.eql(expected)
 	})
 })

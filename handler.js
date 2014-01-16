@@ -29,7 +29,9 @@ var processData = function(data) {
 
 	var languages = _.chain(messages).map(function(msg) { 
 		return _.uniq(msg.split(/\s*,\s*/));
-	}).flatten().value();
+	}).flatten().filter(function(lang) { 
+		return lang != ""; 
+	}).value();
 
 	var children = _.chain(languages)
 	.countBy(_.identity)
