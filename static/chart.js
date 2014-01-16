@@ -21,6 +21,10 @@ var tooltip = d3.select("#chart").append("div")
 
 
 d3.json("data.json", function(error, root) {
+	["languagesCount", "languagesPerMessage", "messagesCount"].forEach(function(id) {
+		d3.select("#" + id).text(root[id]);
+	});
+
 	var node = svg.selectAll(".node")
 	    .data(bubble.nodes(root)
 	    	.filter(function(d) { return !d.children; }))

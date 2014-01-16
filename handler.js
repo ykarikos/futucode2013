@@ -41,7 +41,12 @@ var processData = function(data) {
     	return obj.value;
     }).reverse().value();
 
-	return { children: children };
+	return { 
+		children: children,
+		messagesCount: messages.length,
+		languagesCount: children.length,
+		languagesPerMessage: Math.round(languages.length / messages.length * 10) / 10
+	};
 };
 exports.processData = processData;
 

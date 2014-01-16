@@ -1,10 +1,16 @@
 body {
 	font-family: "Source Sans Pro", sans-serif;
 	background: #ded;
+	padding: 0.5em;
 }
 
 h1 {
 	font-size: 3em;
+	margin-top: 0em;
+}
+
+p {
+	max-width: 700px;
 }
 
 div.tooltip { 
@@ -14,4 +20,27 @@ div.tooltip {
 	border-radius: 8px;
 	pointer-events: none;
 	background: white
+}
+
+#fun {
+	border: 1px solid;
+	border-radius: 8px;
+	padding: 15px;
+	background: #dee;
+	max-width: 500px;
+}
+
+#fun span {
+	font-weight: bold;
+}
+
+#fun h3 {
+	margin: 0;
+}
+#fun ul {
+	padding: 0;
+	margin: 0.5em 0;
+}
+#fun li {
+	list-style: none;
 }
