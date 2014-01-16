@@ -1,7 +1,7 @@
 var url = require("url");
 var _ = require("underscore");
 
-var cachePeriod = 30; // 30 sec
+var cachePeriod = 60; // sec
 var cache = {
 	valid: 0,
 	data: ""
