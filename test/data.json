@@ -1,228 +1,145 @@
-{
-    "messages": [
-        {
-            "attachments": [],
-            "body": {
-                "parsed": "JavaScript, Java, Objective-C, C#, javascript",
-                "plain": "JavaScript, Java, Objective-C, C#, javascript",
-                "rich": "JavaScript, Java, Objective-C, C#, javascript"
-            },
-            "chat_client_sequence": null,
-            "client_type": "Web",
-            "content_excerpt": "JavaScript, Java, Objective-C, C#, javascript",
-            "created_at": "2014/01/05 22:22:34 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235292,
-            "language": null,
-            "liked_by": {
-                "count": 0,
-                "names": []
-            },
-            "message_type": "update",
-            "network_id": 31818,
-            "notified_user_ids": [],
-            "privacy": "public",
-            "replied_to_id": 354235231,
-            "sender_id": 2741122,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231
-        },
-        {
-            "attachments": [],
-            "body": {
-                "parsed": "python, javascript, java",
-                "plain": "python, javascript, java",
-                "rich": "python, javascript, java"
-            },
-            "chat_client_sequence": null,
-            "client_type": "Web",
-            "content_excerpt": "python, javascript, java",
-            "created_at": "2014/01/05 22:22:34 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235292,
-            "language": null,
-            "liked_by": {
-                "count": 0,
-                "names": []
-            },
-            "message_type": "update",
-            "network_id": 31818,
-            "notified_user_ids": [],
-            "privacy": "public",
-            "replied_to_id": 354235231,
-            "sender_id": 2741123,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231
-        },
-        {
-            "attachments": [],
-            "body": {
-                "parsed": "JavaScript, Scala, Clojure",
-                "plain": "javascript, scala, clojure",
-                "rich": "javascript, scala, clojure"
-            },
-            "chat_client_sequence": null,
-            "client_type": "Web",
-            "content_excerpt": "javascript, scala, clojure",
-            "created_at": "2014/01/07 22:23:37 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235358,
-            "language": null,
-            "liked_by": {
-                "count": 0,
-                "names": []
-            },
-            "message_type": "update",
-            "network_id": 31818,
-            "notified_user_ids": [],
-            "privacy": "public",
-            "replied_to_id": 354235231,
-            "sender_id": 2741121,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231
-        },
-        {
-            "attachments": [],
-            "body": {
-                "parsed": "javascript, java, scala",
-                "plain": "javascript, java, scala",
-                "rich": "javascript, java, scala"
-            },
-            "chat_client_sequence": null,
-            "client_type": "Web",
-            "content_excerpt": "javascript, java, scala",
-            "created_at": "2014/01/05 23:22:34 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235292,
-            "language": null,
-            "liked_by": {
-                "count": 0,
-                "names": []
-            },
-            "message_type": "update",
-            "network_id": 31818,
-            "notified_user_ids": [],
-            "privacy": "public",
-            "replied_to_id": 354235231,
-            "sender_id": 2741123,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231
-        },
-        {
-            "attachments": [],
-            "body": {
-                "parsed": "Testing 1 2 3",
-                "plain": "Testing 1 2 3",
-                "rich": "Testing 1 2 3"
-            },
-            "chat_client_sequence": null,
-            "client_type": "Web",
-            "content_excerpt": "Testing 1 2 3",
-            "created_at": "2014/01/05 22:21:38 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235231,
-            "language": null,
-            "liked_by": {
-                "count": 0,
-                "names": []
-            },
-            "message_type": "update",
-            "network_id": 31818,
-            "notified_user_ids": [],
-            "privacy": "public",
-            "replied_to_id": null,
-            "sender_id": 2741123,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231
-        }
-    ],
-    "meta": {
-        "current_user_id": 2741123,
-        "direct_from_body": false,
-        "feed_desc": "Messages in this conversation",
-        "feed_name": "Conversation",
-        "followed_references": [],
-        "last_seen_message_id": null,
-        "realtime": {
-            "authentication_token": "foobar",
-            "channel_id": "foo",
-            "uri": "https://4-521.rt.yammer.com/cometd/"
-        },
-        "requested_poll_interval": 60,
-        "ymodules": []
+[{
+    "attachments": [],
+    "body": {
+        "parsed": "JavaScript, Java, Objective-C, C#, javascript",
+        "plain": "JavaScript, Java, Objective-C, C#, javascript",
+        "rich": "JavaScript, Java, Objective-C, C#, javascript"
     },
-    "references": [
-        {
-            "activated_at": "2010/10/04 13:19:59 +0000",
-            "full_name": "Fred User",
-            "id": 2741123,
-            "name": "user",
-            "state": "active",
-            "stats": {
-                "followers": 95,
-                "following": 59,
-                "updates": 279
-            },
-            "type": "user"
-        },
-        {
-            "body": {
-                "plain": "Testing 1 2 3"
-            },
-            "content_excerpt": "Testing 1 2 3",
-            "created_at": "2014/01/05 22:21:38 +0000",
-            "direct_message": false,
-            "group_id": 139031,
-            "id": 354235231,
-            "language": null,
-            "message_type": "update",
-            "network_id": 31818,
-            "privacy": "public",
-            "replied_to_id": null,
-            "sender_id": 2741123,
-            "sender_type": "user",
-            "system_message": false,
-            "thread_id": 354235231,
-            "type": "message"
-        },
-        {
-            "direct_message": false,
-            "group_id": 139031,
-            "has_attachments": false,
-            "id": 354235231,
-            "privacy": "public",
-            "stats": {
-                "first_reply_at": "2014/01/05 22:22:34 +0000",
-                "first_reply_id": 354235292,
-                "latest_reply_at": "2014/01/05 22:23:37 +0000",
-                "latest_reply_id": 354235358,
-                "shares": 0,
-                "updates": 3
-            },
-            "thread_starter_id": 354235231,
-            "topics": [],
-            "type": "thread"
-        },
-        {
-            "created_at": "2011/03/29 16:38:38 +0000",
-            "description": "Foo testing",
-            "full_name": "test",
-            "id": 139031,
-            "mugshot_id": null,
-            "name": "test",
-            "privacy": "public",
-            "type": "group"
-        }
-    ],
-    "threaded_extended": {}
-}
+    "chat_client_sequence": null,
+    "client_type": "Web",
+    "content_excerpt": "JavaScript, Java, Objective-C, C#, javascript",
+    "created_at": "2014/01/05 22:22:34 +0000",
+    "direct_message": false,
+    "group_id": 139031,
+    "id": 354235292,
+    "language": null,
+    "liked_by": {
+        "count": 0,
+        "names": []
+    },
+    "message_type": "update",
+    "network_id": 31818,
+    "notified_user_ids": [],
+    "privacy": "public",
+    "replied_to_id": 354235231,
+    "sender_id": 2741122,
+    "sender_type": "user",
+    "system_message": false,
+    "thread_id": 354235231
+},
+{
+    "attachments": [],
+    "body": {
+        "parsed": "python, javascript, java",
+        "plain": "python, javascript, java",
+        "rich": "python, javascript, java"
+    },
+    "chat_client_sequence": null,
+    "client_type": "Web",
+    "content_excerpt": "python, javascript, java",
+    "created_at": "2014/01/05 22:22:34 +0000",
+    "direct_message": false,
+    "group_id": 139031,
+    "id": 354235292,
+    "language": null,
+    "liked_by": {
+        "count": 0,
+        "names": []
+    },
+    "message_type": "update",
+    "network_id": 31818,
+    "notified_user_ids": [],
+    "privacy": "public",
+    "replied_to_id": 354235231,
+    "sender_id": 2741123,
+    "sender_type": "user",
+    "system_message": false,
+    "thread_id": 354235231
+},
+{
+    "attachments": [],
+    "body": {
+        "parsed": "JavaScript, Scala, Clojure",
+        "plain": "javascript, scala, clojure",
+        "rich": "javascript, scala, clojure"
+    },
+    "chat_client_sequence": null,
+    "client_type": "Web",
+    "content_excerpt": "javascript, scala, clojure",
+    "created_at": "2014/01/07 22:23:37 +0000",
+    "direct_message": false,
+    "group_id": 139031,
+    "id": 354235358,
+    "language": null,
+    "liked_by": {
+        "count": 0,
+        "names": []
+    },
+    "message_type": "update",
+    "network_id": 31818,
+    "notified_user_ids": [],
+    "privacy": "public",
+    "replied_to_id": 354235231,
+    "sender_id": 2741121,
+    "sender_type": "user",
+    "system_message": false,
+    "thread_id": 354235231
+},
+{
+    "attachments": [],
+    "body": {
+        "parsed": "javascript, java, scala",
+        "plain": "javascript, java, scala",
+        "rich": "javascript, java, scala"
+    },
+    "chat_client_sequence": null,
+    "client_type": "Web",
+    "content_excerpt": "javascript, java, scala",
+    "created_at": "2014/01/05 23:22:34 +0000",
+    "direct_message": false,
+    "group_id": 139031,
+    "id": 354235292,
+    "language": null,
+    "liked_by": {
+        "count": 0,
+        "names": []
+    },
+    "message_type": "update",
+    "network_id": 31818,
+    "notified_user_ids": [],
+    "privacy": "public",
+    "replied_to_id": 354235231,
+    "sender_id": 2741123,
+    "sender_type": "user",
+    "system_message": false,
+    "thread_id": 354235231
+},
+{
+    "attachments": [],
+    "body": {
+        "parsed": "Testing 1 2 3",
+        "plain": "Testing 1 2 3",
+        "rich": "Testing 1 2 3"
+    },
+    "chat_client_sequence": null,
+    "client_type": "Web",
+    "content_excerpt": "Testing 1 2 3",
+    "created_at": "2014/01/05 22:21:38 +0000",
+    "direct_message": false,
+    "group_id": 139031,
+    "id": 354235231,
+    "language": null,
+    "liked_by": {
+        "count": 0,
+        "names": []
+    },
+    "message_type": "update",
+    "network_id": 31818,
+    "notified_user_ids": [],
+    "privacy": "public",
+    "replied_to_id": null,
+    "sender_id": 2741123,
+    "sender_type": "user",
+    "system_message": false,
+    "thread_id": 354235231
+}]

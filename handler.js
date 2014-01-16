@@ -17,7 +17,7 @@ var currentTimeInSeconds = function() {
 }
 
 var processData = function(data) {
-	var messages = _.chain(data.messages).filter(function(msg) {
+	var messages = _.chain(data).filter(function(msg) {
 		return msg.replied_to_id != null
 	}).sortBy(function(msg) {
 		return msg.created_at;
@@ -44,6 +44,12 @@ var processData = function(data) {
 exports.processData = processData;
 
 exports.dataJson = function(configuration, dataRequestOptions, res) {
+	var messages = Array();
+
+	var last = function(arr) {
+		return arr[arr.length - 1];
+	}
+
 	var requestCallback = function(wsRes) {
 		var str = "";
 		//another chunk of data has been received, so append it to `str`
@@ -54,12 +60,20 @@ exports.dataJson = function(configuration, dataRequestOptions, res) {
 		//the whole response has been received, so we just print it out here
 		wsRes.on('end', function () {
 			try {
-				var newData = JSON.stringify(processData(JSON.parse(str)));
-				updateCache(newData);
-				writeResponse(newData);
+				var data = JSON.parse(str);
+				messages = messages.concat(data.messages);
+				if (data.meta.older_available) {
+					var options = _.clone(dataRequestOptions);
+					options.path = options.path + "?older_than=" + last(messages).id;
+					configuration.module.get(options, requestCallback).on('error', errorCallback);
+				} else {
+					var newData = JSON.stringify(processData(messages));
+					updateCache(newData);
+					writeResponse(newData);
+				}
 			} catch (e) {
 				errorCallback(e);
-				}
+			}
 		});
 	};
 

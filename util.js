@@ -4,8 +4,8 @@ var url = require("url");
 
 exports.parseConf = function(env) {
 	if (env.DATA_SOURCE == "") {
-		console.error("DATA_SOURCE environment variable missing")
-		process.exit(1)
+		console.error("DATA_SOURCE environment variable missing");
+		process.exit(1);
 	}
 	var dataSource = url.parse(env.DATA_SOURCE);
 
