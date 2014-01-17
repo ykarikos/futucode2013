@@ -54,6 +54,9 @@ d3.json("data.json", function(error, root) {
 		.attr("dy", ".3em")
     	.attr("text-anchor", "middle")
 		.text(function(d) { return d.className.substring(0, d.r / 3); });
+		
+	d3.select("#loading").remove();
 });
 
 d3.select(self.frameElement).style("height", diameter + "px");
+
