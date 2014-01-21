@@ -3,7 +3,7 @@ var https = require("https");
 var url = require("url");
 
 exports.parseConf = function(env) {
-	if (env.DATA_SOURCE == "") {
+	if (typeof env.DATA_SOURCE == "undefined" || !env.DATA_SOURCE) {
 		console.error("DATA_SOURCE environment variable missing");
 		process.exit(1);
 	}
