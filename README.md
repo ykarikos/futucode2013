@@ -18,6 +18,11 @@ Install [node.js](http://nodejs.org/). Set DATA_SOURCE environment variable to p
 
 By default, server.js runs in port 9000. You can change this with the PORT environment variable
 
+##Ideas for improvement
+
+* Load API messages from Yammer in the background while serving the old cached data
+* Update the graph with a nice transition without reloading the web page
+
 ##License
 
 Futucode2013 (C) 2014 Yrjö Kari-Koskinen <ykk@peruna.fi>
