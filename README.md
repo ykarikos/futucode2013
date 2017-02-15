@@ -5,7 +5,7 @@ A visualization app for Yammer responses to the post *What programming languages
 The app is built with
 * [node.js](http://nodejs.org/)
 * [D3.js](http://d3js.org/)
-* [Mocha](http://visionmedia.github.io/mocha/)
+* [Mocha](http://mochajs.org/)
 * [Heroku](http://www.heroku.com/)
 
 ##Running
