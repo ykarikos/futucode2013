@@ -8,7 +8,7 @@ The app is built with
 * [Mocha](http://mochajs.org/)
 * [Heroku](http://www.heroku.com/)
 
-##Running
+## Running
 
 Install [node.js](http://nodejs.org/). Set DATA_SOURCE environment variable to point to the [https://developer.yammer.com/restapi/#rest-messages-threads](Yammer Messages API JSON). If you're connecting directly to Yammer, you'll need to set your [authentication token](https://developer.yammer.com/authentication/#a-testtoken) in the AUTH_TOKEN environment variable.
 
@@ -18,12 +18,12 @@ Install [node.js](http://nodejs.org/). Set DATA_SOURCE environment variable to p
 
 By default, server.js runs in port 9000. You can change this with the PORT environment variable
 
-##Ideas for improvement
+## Ideas for improvement
 
 * Load API messages from Yammer in the background while serving the old cached data
 * Update the graph with a nice transition without reloading the web page
 
-##License
+## License
 
 Futucode2013 (C) 2014 Yrjö Kari-Koskinen <ykk@peruna.fi>
 
